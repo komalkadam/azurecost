@@ -30,11 +30,11 @@ public class AzurecostApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AzurecostApplication.class, args);
-		AzureProfile profile = new AzureProfile("18791e17-6159-4f52-a8d4-de814ca8284a", "38713a6f-be7b-4707-bc26-e2028cb98e0d", AzureEnvironment.AZURE);
+		AzureProfile profile = new AzureProfile("<>", "<>", AzureEnvironment.AZURE);
 		ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
-		            .clientId("c57e2d5e-ab71-4827-b270-f77c379e2b61")
-		            .clientSecret("TUEhFmdORiBCj32.qWSo~o51V-89IC1.BT")
-		            .tenantId("18791e17-6159-4f52-a8d4-de814ca8284a")
+		            .clientId("<>")
+		            .clientSecret("<>")
+		            .tenantId("<>")
 		            .build();
 		
 		CostManagementManager manager = CostManagementManager
@@ -54,7 +54,7 @@ public class AzurecostApplication {
                                     new QueryGrouping()
                                         .withType(QueryColumnType.DIMENSION)
                                         .withName("ResourceGroup"))));
-		QueryResult result = manager.queries().usage("subscriptions/38713a6f-be7b-4707-bc26-e2028cb98e0d", parameters);
+		QueryResult result = manager.queries().usage("subscriptions/<>", parameters);
 		
 		List<QueryColumn> columns = result.columns();
 		for (int i=0; i < columns.size(); i++) {
